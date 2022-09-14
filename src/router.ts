@@ -10,6 +10,8 @@ import Dashboard from './views/dashboard/Dashboard.vue'
 import Gallery from './views/Gallery.vue'
 import Redeem from './views/Redeem.vue'
   
+import Publish from './views/Publish.vue'
+
 import About from './views/About.vue'
 
 import DigitalAssetsNew from './views/digitalassets/new.vue'
@@ -65,7 +67,12 @@ export default new Router({
       component: Redeem
     }, 
  
-      
+    {
+      path: '/publish/',
+      name: 'publish',
+      component: Publish
+    }, 
+ 
 
     {
       path: '/*',

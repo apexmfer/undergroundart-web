@@ -5,10 +5,10 @@
   <div class="section w-container flex flex-col py-16 " style="min-height:600px"> 
 
    
-      <div> Redeem your digital asset </div>
+      <div class="text-lg" > Redeem your digital asset </div>
 
 
-      <div > 
+      <div class="pt-8"> 
 
  
         <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="secretMessage" placeholder="redemption code" /> 

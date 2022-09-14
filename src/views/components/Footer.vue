@@ -11,17 +11,21 @@
            
           </div>
         <div class="w-1/3 h-full p-2 flex flex-col">
+          <h3 class=" text-md  ">Quick Links</h3>
+
+              <a v-for="item in config.quicklinks" :key="item.title" :href="item.path" target="_blank"> {{item.title}} </a>
+         
+         
+         </div>
+
+
+             <div class="w-1/3 h-full p-2 flex flex-col">
           <h3 class=" text-md  ">Community &amp; Social</h3>
 
               <a v-for="item in config.community" :key="item.title" :href="item.path" target="_blank"> {{item.title}} </a>
          
          
          </div>
-
-
-           <div class="w-1/3 text-gray-500 p-4">
-           
-           </div>
 
 
       </div>

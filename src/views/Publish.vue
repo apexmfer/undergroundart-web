@@ -5,14 +5,32 @@
   <div class="section w-container flex flex-col py-16 " style="min-height:600px"> 
 
    
-      <div> Publish a new Art Project </div>
+      <div class="text-lg"> Publish a new Art Project </div>
 
 
-      <div > 
+      <div class="pt-8"> 
 
  
-        <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="secretMessage" placeholder="redemption code" /> 
+     
 
+        <div class="flex flex-col w-1/2 ">
+
+          <div class="pb-4">
+          <div class="font-bold"> Metadata URI </div>
+          <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="metadataURI" placeholder="Metadata URI" /> 
+          </div>
+
+          <div class="pb-4">
+             <div class="font-bold"> Total Supply </div>
+          <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="totalSupply" placeholder="Total Supply" /> 
+          </div>
+          
+          <div class="pb-4">
+             <div class="font-bold"> Mint Price </div>
+          <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="mintPrice" placeholder="Mint price (ETH)" /> 
+          </div>
+
+        </div>
 
         <ButtonWeb3        
         class="p-2 bg-blue-400 hover:bg-gray-400 inline text-white mx-2 "
@@ -76,7 +94,10 @@ export default {
       },
   data() {
     return {
-         secretMessage: undefined,
+
+         metadataURI: "ipfs://",
+         totalSupply: 10,
+         mintPrice: 0
     };
   },
 
@@ -130,11 +151,11 @@ export default {
       )
 
       try{
-       let tx = await artContract.mintTokenFromSecretMessage(utils . arrayify(secretMessage),{from:primaryAccount})
+       let tx = await artContract.defineProject(primaryAccount, this.metadataURI, this.totalSupply, this.mintPrice,{from:primaryAccount})
 
       }catch(e){
 
-        this.$refs.errorBanner.renderError('Unable to read this code.')
+        this.$refs.errorBanner.renderError('Could not define project.')
       }
     },
  
