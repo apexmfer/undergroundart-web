@@ -14,33 +14,19 @@
         <input class="p-2 border-2 border-gray-500 my-2 rounded " v-model="secretMessage" placeholder="redemption code" /> 
 
 
-
-        <ButtonDefault 
-        v-if="web3IsActive()"
+        <ButtonWeb3        
         class="p-2 bg-blue-400 hover:bg-gray-400 inline text-white mx-2 "
         @clicked="claim"
         > 
         Claim 
-        </ButtonDefault>
-
-        <ButtonDefault 
-        v-if="!web3IsActive()"
-        class="p-2 bg-indigo-600 hover:bg-gray-400 inline text-white mx-2 "
-        @clicked="connect"
-        > 
-        Connect 
-        </ButtonDefault>
+        </ButtonWeb3>
+       
 
       </div>  
 
+ 
 
-
-
-
-     </div>
-
-
-  
+     </div> 
 
 
    </PrimaryLayout>
@@ -61,7 +47,7 @@ import PrimaryLayout from './PrimaryLayout.vue';
  
 import TiledGalleryBrowser from '@/views/components/gallery/TiledGalleryBrowser.vue'
 import ButtonDefault from '@/views/elements/button_default.vue'
- 
+ import ButtonWeb3 from '@/views/elements/button_web3_call.vue'
 const ContractsConfig = require('/src/contracts/ContractsConfig.json');
 
 const ArtContractABI = require('/src/contracts/UndergroundArt.abi.json');
@@ -71,7 +57,8 @@ export default {
   props: [],
   components: {
      PrimaryLayout,
-      ButtonDefault 
+      ButtonDefault ,
+      ButtonWeb3
       },
   data() {
     return {
@@ -103,15 +90,6 @@ export default {
     getRouteTo,
 
 
-      web3IsActive(){    
-        return this.$store.state.web3Storage.active
-      },
-      activeAccount(){          
-        return this.$store.state.web3Storage.account
-      } ,
-
-
-
     async claim(){
       console.log('claim',this.secretMessage)
 
@@ -141,14 +119,6 @@ export default {
 
       let tx = await artContract.mintTokenFromSecretMessage(utils . arrayify(secretMessage),{from:primaryAccount})
     },
-
-
-    async connect(){
-
-      this.$store.commit('setShowWeb3ConnectModal',true)
-
-    }
-  
  
     
   },
