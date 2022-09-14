@@ -5,7 +5,7 @@
   <div class="section w-container flex flex-col py-16 " style="min-height:600px"> 
 
    
-      <div> Redeem your digital asset </div>
+      <div> Publish a new Art Project </div>
 
 
       <div > 

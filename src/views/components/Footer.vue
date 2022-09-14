@@ -3,25 +3,25 @@
     <div class=" h-full flex flex-col" style="min-height: 250px;">
       <div class=" flex flex-grow flex-row  ">
          
-        <div class="w-1/3 p-2 ">
+        <div class="w-1/3 p-2 flex flex-col">
           <h3 class=" text-md   ">Documentation</h3>
 
-        <a href="https://github.com/apexmfer/xcopycult-web" target="_blank"> Source Code </a>
+           <a v-for="item in config.documentation" :key="item.title" :href="item.path" target="_blank"> {{item.title}} </a>
          
            
           </div>
-        <div class="w-1/3 h-full p-2">
+        <div class="w-1/3 h-full p-2 flex flex-col">
           <h3 class=" text-md  ">Community &amp; Social</h3>
 
-          <a href="https://xcopy.art/" target="_blank"> XCOPY Art </a>
-        
+              <a v-for="item in config.community" :key="item.title" :href="item.path" target="_blank"> {{item.title}} </a>
+         
          
          </div>
 
 
            <div class="w-1/3 text-gray-500 p-4">
-           XCOPYCULT is not officially affiliated with XCOPY
-         </div>
+           
+           </div>
 
 
       </div>
@@ -39,13 +39,15 @@
 
 <script>
 
+const footerConfig = require('../config/footer-config.json')
+
 
 export default {
   name: 'Footer',
   props: [],
   data() {
     return {
-
+      config: footerConfig
     }
   },
   created(){
