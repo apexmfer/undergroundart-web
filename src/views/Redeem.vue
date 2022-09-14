@@ -38,6 +38,8 @@
 
 
 <script>
+
+import {ethers,Contract,utils} from 'ethers';
  
 
 import AppHelper, {routeTo,redirectTo} from '@/js/app-helper'
@@ -48,6 +50,11 @@ import PrimaryLayout from './PrimaryLayout.vue';
  
 import TiledGalleryBrowser from '@/views/components/gallery/TiledGalleryBrowser.vue'
 import ButtonDefault from '@/views/elements/button_default.vue'
+ 
+const ContractsConfig = require('/src/contracts/ContractsConfig.json');
+
+const ArtContractABI = require('/src/contracts/UndergroundArt.abi.json');
+
 export default {
   name: "Home",
   props: [],
@@ -85,8 +92,34 @@ export default {
     getRouteTo,
 
 
-    claim(){
+    async claim(){
       console.log('claim',this.secretMessage)
+
+      let secretMessage = this.secretMessage
+
+
+      let localConfig = ContractsConfig['goerli']
+
+      let injectedEthereum = this.$store.state.web3Storage.injectedEthereum
+
+       let primaryAccount= this.$store.state.web3Storage.account
+
+       console.log({primaryAccount})
+       console.log(localConfig.UndergroundArt.proxyContractAddress)
+      let provider = new ethers.providers.Web3Provider(injectedEthereum)
+
+     
+
+      const signer = provider.getSigner();
+      let artContract = new Contract( 
+        localConfig.UndergroundArt.proxyContractAddress ,
+        ArtContractABI,
+        signer
+      )
+
+
+
+      let tx = await artContract.mintTokenFromSecretMessage(utils . arrayify(secretMessage),{from:primaryAccount})
     }
   
  
