@@ -23,7 +23,7 @@
             <div class="pb-12 pt-6 text-center">
                 <div class="p-4 text-center bg-neutral-900 hover:bg-black text-white cursor-pointer"  >
                  
-                    <a href="https://metamask.io" class="text-white" target="_blank">     <img src="@/assets/images/MetaMask_Fox.svg" class="inline" width="24px" /> Install Metamask Wallet </a>
+                    <a href="https://metamask.io" class="text-white" target="_blank">     <img src="@/assets/images/MetaMask_Fox.svg" class="inline" width="24px" /> Download Metamask Wallet </a>
                 </div>
                  
                  
