@@ -155,8 +155,15 @@ export default {
         signer
       )
 
+   
+
       try{
-       let tx = await artContract.defineProject(primaryAccount, this.metadataURI, this.totalSupply, this.mintPrice,{from:primaryAccount})
+
+
+       let mintPriceWei = ethers.utils.parseUnits(this.mintPrice.toString(), "ether");
+
+
+       let tx = await artContract.defineProject(primaryAccount, this.metadataURI, this.totalSupply, mintPriceWei ,{from:primaryAccount})
 
       }catch(e){
 
