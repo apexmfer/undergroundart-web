@@ -129,12 +129,24 @@ export default {
         signer
       )
 
+      let arrayifiedMessage
       try{
-       let tx = await artContract.mintTokenFromSecretMessage(utils . arrayify(secretMessage),{from:primaryAccount})
+
+        arrayifiedMessage = utils . arrayify(secretMessage)
 
       }catch(e){
 
         this.$refs.errorBanner.renderError('Unable to read this code.')
+        return 
+      }
+
+      try{
+
+       let tx = await artContract.mintTokenFromSecretMessage(arrayifiedMessage,{from:primaryAccount})
+
+      }catch(e){
+     this.$refs.errorBanner.renderError('Unable to complete transaction.')
+        return 
       }
     },
  
