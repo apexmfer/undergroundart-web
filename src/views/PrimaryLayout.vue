@@ -17,6 +17,7 @@
 
      
     <Web3ConnectModal />
+    <Web3HelpModal />
 
     <AccountSidenav   />  
  
@@ -38,6 +39,8 @@ import Footer from "./components/Footer.vue";
  
 import AccountSidenav from '@/views/components/nav/AccountSidenav.vue'
 import Web3ConnectModal from '@/views/components/web3connectmodal.vue'
+import Web3HelpModal from '@/views/components/web3helpmodal.vue'
+
 import CartPreview from '@/views/components/CartPreview.vue'
  
 
@@ -51,6 +54,7 @@ export default {
     Footer,
     AccountSidenav,
     Web3ConnectModal,
+    Web3HelpModal,
     CartPreview
     },
   data() {

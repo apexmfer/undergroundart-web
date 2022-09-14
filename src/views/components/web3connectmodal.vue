@@ -70,6 +70,7 @@ export default {
 
           if(!window.ethereum){
               console.error('ERROR: web3 not found')
+              this.$store.commit('setShowWeb3HelpModal',true)
               await this.$store.commit('setWeb3Error','web3 not found')
             return
           }

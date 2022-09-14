@@ -5,7 +5,8 @@ const paramsToPersist = []
 
 const frontendStorage = {
     state: {
-        showWeb3ConnectModal: false,  
+        showWeb3ConnectModal: false, 
+        showWeb3HelpModal:false, 
         showSidenav: false,
         showCartPreview: false 
     },
@@ -13,6 +14,16 @@ const frontendStorage = {
        
     },
     mutations: {
+
+      
+        setShowWeb3HelpModal(state:any, show:any) {
+            if(show == true){
+                
+                //@ts-ignore
+                this.commit('hideAll')
+            }
+            state.showWeb3HelpModal = !!show
+        },
       
         setShowWeb3ConnectModal(state:any, show:any) {
             if(show == true){
@@ -38,6 +49,7 @@ const frontendStorage = {
         },
         hideAll(state:any){
             state.showWeb3ConnectModal=false
+            state.showWeb3HelpModal=false
             state.showSidenav=false
             state.showCartPreview=false
         }
