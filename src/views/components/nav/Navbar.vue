@@ -16,7 +16,7 @@
                 <img src="@/assets/images/redflamesxcopy.gif" style="max-width:40px;"  class=" inline "/> 
 
 
-                <span class="text-xl px-8"> XCOPY Cult  </span>
+                <span class="text-xl px-8"> Underground Art  </span>
              </div>   
              
          

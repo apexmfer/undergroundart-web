@@ -8,6 +8,7 @@ import Dashboard from './views/dashboard/Dashboard.vue'
  
  
 import Gallery from './views/Gallery.vue'
+import Redeem from './views/Redeem.vue'
   
 import About from './views/About.vue'
 
@@ -23,17 +24,13 @@ export default new Router({
   base: process.env.PUBLIC_URL,
   routes: [
 
-
    
     {
       path: '/',
       name: 'home',
       component: Home
     },
-
-    
-    
-   
+ 
     {
       path: '/gallery/:page?',
       name: 'gallery',
@@ -42,7 +39,7 @@ export default new Router({
 
 
     {
-      path: '/',
+      path: '/about',
       name: 'about',
       component: About
     },
@@ -55,18 +52,18 @@ export default new Router({
     },
 
 
+    {
+      path: '/redeem/',
+      name: 'redeem',
+      component: Redeem
+    }, 
+ 
 
     {
-      path: '/digitalassets/new',
-      name: 'digitalassetsnew',
-      component: DigitalAssetsNew
-    },
-     
-    {
-      path: '/digitalassets/:id',
-      name: 'digitalassetshow',
-      component: DigitalAssetsShow
-    },
+      path: '/redeem/:code',
+      name: 'redeem',
+      component: Redeem
+    }, 
  
       
 
