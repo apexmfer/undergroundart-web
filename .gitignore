@@ -1,0 +1,13 @@
+node_modules
+server/serverconfig.json
+
+
+cache/**
+
+test/cache/**
+
+
+.env
+
+dist/**
+imagestorage/**
