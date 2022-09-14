@@ -7,6 +7,11 @@
    
       <div class="text-lg"> Publish a new Art Project </div>
 
+       
+      <div class="text-md text-gray-500"> Only admins and curated artists can publish new art projects. </div>
+
+      
+
 
       <div class="pt-8"> 
 
@@ -36,7 +41,7 @@
         class="p-2 bg-blue-400 hover:bg-gray-400 inline text-white mx-2 "
         @clicked="claim"
         > 
-        Claim 
+        Publish 
         </ButtonWeb3>
        
 
